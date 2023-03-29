@@ -52,7 +52,7 @@ class Circle extends Shape {
         this.r = r;
     }
 
-    void draw() {
+    void draw() { // 오버라이딩
         System.out.printf("[center=(%d, %d), r=%d, color=%s]%n",
                 center.x, center.y, r, color);
     }
