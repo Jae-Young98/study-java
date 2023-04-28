@@ -1,4 +1,4 @@
-package BOJ;
+package BOJ.BarkingDogAlgorithm.LinkedList;
 
 import java.io.BufferedReader;
 import java.io.IOException;
