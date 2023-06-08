@@ -26,10 +26,10 @@ public class BFS_Array {
             adjArray[v2][v1] = 1;
         }
         System.out.println("BFS - 인접행렬");
-        bfs_array(v, adjArray, visited);
+        bfsArray(v, adjArray, visited);
     }
 
-    public static void bfs_array(int v, int[][] adjArray, boolean[] visited) {
+    public static void bfsArray(int v, int[][] adjArray, boolean[] visited) {
         Queue<Integer> q = new LinkedList<>();
         int n = adjArray.length - 1;
 
