@@ -27,7 +27,7 @@ public class BFS_List {
             adjList[v2].add(v1);
         }
 
-        for (int i = 0; i <= n; i++) {
+        for (int i = 1; i <= n; i++) {
             Collections.sort(adjList[i]); // 방문 순서를 위해 정렬
         }
 
