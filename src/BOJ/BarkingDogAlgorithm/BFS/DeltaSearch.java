@@ -22,8 +22,8 @@ public class DeltaSearch {
 
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
-                if (map[i][j] == 5) {
-                    System.out.printf("x = %d y = %d\n", j, i); // 배열의 인덱스가 아닌 좌표로 보이게
+                if (map[i][j] == -5) {
+                    System.out.printf("x = %d y = %d\n", j, i);
                     for (int d = 0; d < N; d++) {
                         int nx = i + dx[d];
                         int ny = j + dy[d];
