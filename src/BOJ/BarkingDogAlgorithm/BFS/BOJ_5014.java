@@ -39,7 +39,7 @@ public class BOJ_5014 {
             if (position == g) {
                 return arr[position];
             }
-
+            // 다음 up 위치가 최대 층 보다 작고 방문하지 않아야함
             if (position + u <= f) {
                 if (arr[position + u] == 0) {
                     arr[position + u] = arr[position] + 1;
