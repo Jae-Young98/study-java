@@ -11,7 +11,7 @@ public class BOJ_11779 {
 
     static int n, m, start, end;
     static int[] distance;
-    static int[] route; // 경로 저장용 배열
+    static int[] route; // 경로 복원용 배열
     static boolean[] visited;
     static ArrayList<Node>[] list;
 
@@ -46,6 +46,7 @@ public class BOJ_11779 {
         dijkstra();
         System.out.println(distance[end]);
 
+        // 경로 복원
         ArrayList<Integer> routes = new ArrayList<>();
         int c = end;
         while (c != 0) {
