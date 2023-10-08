@@ -38,25 +38,22 @@ public class BOJ_13418 {
         }
 
         // 최악의 경우
-        int worstUphill = 0;
-        while (!worstQueue.isEmpty()) {
-            node now = worstQueue.poll();
-
-            if (find(now.s) != find(now.e)) {
-                union(now.s, now.e);
-
-                if (now.v == 0) {
-                    worstUphill++;
-                }
-            }
-        }
+        int worstUphill = mst(worstQueue);
 
         for (int i = 0; i <= n; i++) {
             parent[i] = i;
         }
 
         // 최적의 경우
-        int uphill = 0;
+        int uphill = mst(queue);
+
+        int result = (int) (Math.pow(worstUphill, 2) - Math.pow(uphill, 2));
+        System.out.println(result);
+    }
+
+    public static int mst(PriorityQueue<node> queue) {
+        int cost = 0;
+
         while (!queue.isEmpty()) {
             node now = queue.poll();
 
@@ -64,12 +61,11 @@ public class BOJ_13418 {
                 union(now.s, now.e);
 
                 if (now.v == 0) {
-                    uphill++;
+                    cost++;
                 }
             }
         }
-        int result = (int) (Math.pow(worstUphill, 2) - Math.pow(uphill, 2));
-        System.out.println(result);
+        return cost;
     }
 
     public static void union(int a, int b) {
