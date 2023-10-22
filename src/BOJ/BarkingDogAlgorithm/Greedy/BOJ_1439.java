@@ -27,6 +27,7 @@ public class BOJ_1439 {
                 }
             }
         }
+
         System.out.println(Math.min(zero, one));
     }
 }
