@@ -17,6 +17,10 @@ public class BOJ_1789 {
             n++;
             count++;
         }
-        System.out.println(count - 1);
+        if (sum > S) {
+            System.out.println(count - 1);
+            return;
+        }
+        System.out.println(count);
     }
 }
