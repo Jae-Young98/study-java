@@ -30,7 +30,6 @@ public class BOJ_13305 {
             minCost = Math.min(minCost, cost[i]);
             result += (minCost * distance[i]);
         }
-
         System.out.println(result);
     }
 }
