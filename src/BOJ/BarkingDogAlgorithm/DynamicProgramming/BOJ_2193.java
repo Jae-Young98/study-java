@@ -9,11 +9,10 @@ public class BOJ_2193 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
         long[] dp = new long[N + 1];
+        dp[0] = 0;
         dp[1] = 1;
-        dp[2] = 1;
-        dp[3] = 2;
 
-        for (int i = 4; i <= N; i++) {
+        for (int i = 2; i <= N; i++) {
             dp[i] = dp[i - 2] + dp[i - 1];
         }
 
