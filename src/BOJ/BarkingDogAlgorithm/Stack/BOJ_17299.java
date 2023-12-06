@@ -14,7 +14,7 @@ public class BOJ_17299 {
 
         int N = Integer.parseInt(br.readLine());
         int[] arr = new int[N];
-        int[] count = new int[N + 1];
+        int[] count = new int[1000001];
         int[] result = new int[N];
 
         st = new StringTokenizer(br.readLine());
