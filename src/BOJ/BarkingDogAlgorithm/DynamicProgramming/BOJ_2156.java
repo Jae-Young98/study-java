@@ -21,6 +21,7 @@ public class BOJ_2156 {
         }
 
         for (int i = 3; i <= N; i++) {
+            // 안마시는 경우, 전전까지의 최대 양 + 현재, 전전전 + 전 + 현재
             dp[i] = Math.max(dp[i - 1], Math.max(dp[i - 2], dp[i - 3] + arr[i - 1]) + arr[i]);
         }
 
