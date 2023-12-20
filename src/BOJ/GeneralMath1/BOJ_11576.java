@@ -3,6 +3,7 @@ package BOJ.GeneralMath1;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Stack;
 import java.util.StringTokenizer;
 
 public class BOJ_11576 {
@@ -15,7 +16,7 @@ public class BOJ_11576 {
         int B = Integer.parseInt(st.nextToken());
         int m = Integer.parseInt(br.readLine());
 
-        long ten = 0;
+        int ten = 0;
         int pow = m - 1;
         st = new StringTokenizer(br.readLine());
         for (int i = 0; i < m; i++) {
@@ -23,14 +24,14 @@ public class BOJ_11576 {
             pow--;
         }
 
-        for (int i = 0; i < m; i++) {
-            long b = ten % B;
-            if (i == 0 && b == 0) {
-                continue;
-            }
+        Stack<Integer> stack = new Stack<>();
+        while (ten != 0) {
+            stack.push(ten % B);
             ten /= B;
-            sb.append(" ").append(b);
         }
-        System.out.println(sb.reverse());
+
+        while (!stack.isEmpty()) {
+            System.out.printf(stack.pop() + " ");
+        }
     }
 }
