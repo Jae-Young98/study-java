@@ -13,6 +13,7 @@ import java.util.StringTokenizer;
 public class BOJ_7785 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
         StringTokenizer st;
 
         Map<String, Integer> map = new HashMap<>();
@@ -31,7 +32,8 @@ public class BOJ_7785 {
         list.sort(Collections.reverseOrder());
 
         for (String key : list) {
-            System.out.println(key);
+            sb.append(key).append('\n');
         }
+        System.out.print(sb);
     }
 }
