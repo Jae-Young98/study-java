@@ -4,14 +4,14 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class BOJ_1325 {
 
-    static int n;
-    static int m;
-    static ArrayList<ArrayList<Integer>> list = new ArrayList<>();
+    static List<Integer>[] list;
     static boolean[] visited;
     static int[] result;
 
@@ -20,23 +20,24 @@ public class BOJ_1325 {
         StringBuilder sb = new StringBuilder();
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        n = Integer.parseInt(st.nextToken());
-        m = Integer.parseInt(st.nextToken());
+        int n = Integer.parseInt(st.nextToken());
+        int m = Integer.parseInt(st.nextToken());
+        list = new ArrayList[n + 1];
         result = new int[n + 1];
-        for (int i = 0; i <= n; i++) {
-            list.add(new ArrayList<>());
+        for (int i = 1; i <= n; i++) {
+            list[i] = new ArrayList<>();
         }
 
         for (int i = 0; i < m; i++) {
             st = new StringTokenizer(br.readLine());
             int a = Integer.parseInt(st.nextToken());
             int b = Integer.parseInt(st.nextToken());
-            list.get(a).add(b);
+            list[a].add(b);
         }
 
         for (int i = 1; i <= n; i++) {
             visited = new boolean[n + 1];
-            dfs(i);
+            bfs(i);
         }
 
         int max = 0;
@@ -52,13 +53,19 @@ public class BOJ_1325 {
         System.out.println(sb);
     }
 
-    public static void dfs(int node) {
+    static void bfs(int node) {
+        Queue<Integer> queue = new LinkedList<>();
+        queue.add(node);
         visited[node] = true;
-        for (int i = 0; i < list.get(node).size(); i++) {
-            int dest = list.get(node).get(i);
-            if (!visited[dest]) {
-                result[dest]++;
-                dfs(dest);
+
+        while (!queue.isEmpty()) {
+            int idx = queue.poll();
+            for (int i : list[idx]) {
+                if (!visited[i]) {
+                    visited[i] = true;
+                    result[i]++;
+                    queue.add(i);
+                }
             }
         }
     }
