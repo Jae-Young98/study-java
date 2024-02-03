@@ -7,6 +7,7 @@ import java.util.StringTokenizer;
 
 public class BOJ_15651 {
 
+    static StringBuilder sb = new StringBuilder();
     static int n, m;
     static int[] arr;
 
@@ -19,14 +20,15 @@ public class BOJ_15651 {
 
         arr = new int[m];
         dfs(0);
+        System.out.print(sb);
     }
 
     public static void dfs(int depth) {
         if (depth == m) {
             for (int i = 0; i < m; i++) {
-                System.out.print(arr[i] + " ");
+                sb.append(arr[i]).append(' ');
             }
-            System.out.println();
+            sb.append('\n');
             return;
         }
 
