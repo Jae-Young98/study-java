@@ -12,8 +12,8 @@ public class BOJ_1515 {
 
         int point = 0;
         int base = 0;
-        while (true) {
-             String temp = String.valueOf(base);
+        while (base++ <= 30000) {
+            String temp = String.valueOf(base);
 
             for (int i = 0; i < temp.length(); i++) {
                 if (temp.charAt(i) == str.charAt(point)) {
@@ -25,8 +25,6 @@ public class BOJ_1515 {
                     return;
                 }
             }
-
-            base++;
         }
     }
 }
