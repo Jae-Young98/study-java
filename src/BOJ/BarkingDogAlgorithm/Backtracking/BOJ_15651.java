@@ -10,6 +10,7 @@ public class BOJ_15651 {
     static StringBuilder sb = new StringBuilder();
     static int n, m;
     static int[] arr;
+    static boolean[] visited;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -17,14 +18,15 @@ public class BOJ_15651 {
 
         n = Integer.parseInt(st.nextToken());
         m = Integer.parseInt(st.nextToken());
+        arr = new int[10];
+        visited = new boolean[10];
+        backTracking(0);
 
-        arr = new int[m];
-        dfs(0);
         System.out.print(sb);
     }
 
-    public static void dfs(int depth) {
-        if (depth == m) {
+    public static void backTracking(int k) {
+        if (k == m) {
             for (int i = 0; i < m; i++) {
                 sb.append(arr[i]).append(' ');
             }
@@ -33,8 +35,8 @@ public class BOJ_15651 {
         }
 
         for (int i = 1; i <= n; i++) {
-            arr[depth] = i;
-            dfs(depth + 1);
+            arr[k] = i;
+            backTracking(k + 1);
         }
     }
 }
