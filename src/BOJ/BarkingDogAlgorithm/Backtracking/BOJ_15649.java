@@ -7,6 +7,7 @@ import java.util.StringTokenizer;
 
 public class BOJ_15649 {
 
+    static int n, m;
     static int[] arr;
     static boolean[] visited;
 
@@ -14,16 +15,15 @@ public class BOJ_15649 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int n = Integer.parseInt(st.nextToken());
-        int m = Integer.parseInt(st.nextToken());
-
-        arr = new int[m];
-        visited = new boolean[n];
-        dfs(n, m, 0);
+        n = Integer.parseInt(st.nextToken());
+        m = Integer.parseInt(st.nextToken());
+        arr = new int[10];
+        visited = new boolean[10];
+        backTracking(0);
     }
 
-    public static void dfs(int n, int m, int depth) {
-        if (depth == m) {
+    public static void backTracking(int k) {
+        if (k == m) {
             for (int i = 0; i < m; i++) {
                 System.out.print(arr[i] + " ");
             }
@@ -31,11 +31,11 @@ public class BOJ_15649 {
             return;
         }
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 1; i <= n; i++) {
             if (!visited[i]) {
+                arr[k] = i;
                 visited[i] = true;
-                arr[depth] = i + 1;
-                dfs(n, m, depth + 1);
+                backTracking(k + 1);
                 visited[i] = false;
             }
         }
