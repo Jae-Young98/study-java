@@ -7,8 +7,10 @@ import java.util.StringTokenizer;
 
 public class BOJ_15652 {
 
+    static StringBuilder sb = new StringBuilder();
     static int n, m;
     static int[] arr;
+    static boolean[] visited;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -16,23 +18,25 @@ public class BOJ_15652 {
 
         n = Integer.parseInt(st.nextToken());
         m = Integer.parseInt(st.nextToken());
-        arr = new int[m];
+        arr = new int[10];
+        visited = new boolean[10];
+        backTracking(1, 0);
 
-        dfs(1, 0);
+        System.out.print(sb);
     }
 
-    public static void dfs(int start, int depth) {
-        if (depth == m) {
+    public static void backTracking(int start, int k) {
+        if (k == m) {
             for (int i = 0; i < m; i++) {
-                System.out.print(arr[i] + " ");
+                sb.append(arr[i]).append(' ');
             }
-            System.out.println();
+            sb.append('\n');
             return;
         }
 
         for (int i = start; i <= n; i++) {
-            arr[depth] = i;
-            dfs(i, depth + 1);
+            arr[k] = i;
+            backTracking(i, k + 1);
         }
     }
 }
