@@ -23,7 +23,8 @@ public class BOJ_1448 {
         int result = -1;
         for (int i = 0; i < n - 2; i++) {
             if (arr[i] < arr[i + 1] + arr[i + 2]) {
-                result = Math.max(result, arr[i] + arr[i + 1] + arr[i + 2]);
+                result = arr[i] + arr[i + 1] + arr[i + 2];
+                break;
             }
         }
 
