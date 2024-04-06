@@ -15,10 +15,7 @@ public class BOJ_1699 {
         for (int i = 1; i <= n; i++) {
             dp[i] = i;
             for (int j = 1; j * j <= i; j++) {
-                int sum = dp[i - j * j] + 1;
-                if (dp[i] > sum) {
-                    dp[i] = sum;
-                }
+                dp[i] = Math.min(dp[i], dp[i - j * j] + 1);
             }
         }
 
