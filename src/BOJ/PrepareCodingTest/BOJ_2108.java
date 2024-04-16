@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
@@ -44,7 +45,21 @@ public class BOJ_2108 {
                 return map.get(o2) - map.get(o1);
             }
         });
-        sb.append(keySet.get(0)).append('\n');
+
+        int maxCount = map.get(keySet.get(0));
+        List<Integer> list = new ArrayList<>();
+        for (Map.Entry<Integer, Integer> m : map.entrySet()) {
+            if (m.getValue() == maxCount) {
+                list.add(m.getKey());
+            }
+        }
+
+        Collections.sort(list);
+        if (list.size() > 1) {
+            sb.append(list.get(1)).append('\n');
+        } else {
+            sb.append(list.get(0)).append('\n');
+        }
 
         // 범위
         sb.append(arr[n - 1] - arr[0]).append('\n');
