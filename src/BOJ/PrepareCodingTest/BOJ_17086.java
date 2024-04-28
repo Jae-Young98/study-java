@@ -77,7 +77,6 @@ public class BOJ_17086 {
                 }
             }
         }
-
         return result;
     }
 }
