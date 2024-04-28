@@ -36,10 +36,7 @@ public class BOJ_17086 {
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
-                if (arr[i][j] == 1) {
-                    if (i == 1 && j == 1) {
-                        System.out.println("a");
-                    }
+                if (arr[i][j] == 0) {
                     queue.offer(new Point(i, j));
                     int distance = bfs(i, j);
 
@@ -70,7 +67,7 @@ public class BOJ_17086 {
                 }
 
                 if (arr[nx][ny] == 1 && !visited[nx][ny]) {
-                    result = Math.min(result, distance[p.x][p.y]);
+                    result = Math.min(result, distance[p.x][p.y] + 1);
                 }
 
                 if (arr[nx][ny] == 0) {
