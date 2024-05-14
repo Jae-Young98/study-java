@@ -9,41 +9,46 @@ public class BOJ_4158 {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine());
+        StringBuilder sb = new StringBuilder();
+        StringTokenizer st;
 
-        int n = Integer.parseInt(st.nextToken());
-        int m = Integer.parseInt(st.nextToken());
+        while (true) {
+            st = new StringTokenizer(br.readLine());
 
-        if (n == 0 && m == 0) {
-            return;
-        }
+            int n = Integer.parseInt(st.nextToken());
+            int m = Integer.parseInt(st.nextToken());
 
-        int[] a = new int[n];
-        int[] b = new int[m];
-
-        for (int i = 0; i < n; i++) {
-            a[i] = Integer.parseInt(br.readLine());
-        }
-
-        for (int i = 0; i < n; i++) {
-            b[i] = Integer.parseInt(br.readLine());
-        }
-
-        int l = 0;
-        int r = 0;
-        int result = 0;
-        while (l != n && r != m) {
-            if (a[l] == b[r]) {
-                result++;
-                l++;
-                r++;
-            } else if (a[l] > b[r]) {
-                r++;
-            } else {
-                l++;
+            if (n == 0 && m == 0) {
+                System.out.print(sb);
+                return;
             }
-        }
 
-        System.out.println(result);
+            int[] a = new int[n];
+            int[] b = new int[m];
+
+            for (int i = 0; i < n; i++) {
+                a[i] = Integer.parseInt(br.readLine());
+            }
+
+            for (int i = 0; i < n; i++) {
+                b[i] = Integer.parseInt(br.readLine());
+            }
+
+            int l = 0;
+            int r = 0;
+            int result = 0;
+            while (l != n && r != m) {
+                if (a[l] == b[r]) {
+                    result++;
+                    l++;
+                    r++;
+                } else if (a[l] > b[r]) {
+                    r++;
+                } else {
+                    l++;
+                }
+            }
+            sb.append(result).append('\n');
+        }
     }
 }
