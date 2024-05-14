@@ -14,6 +14,10 @@ public class BOJ_4158 {
         int n = Integer.parseInt(st.nextToken());
         int m = Integer.parseInt(st.nextToken());
 
+        if (n == 0 && m == 0) {
+            return;
+        }
+
         int[] a = new int[n];
         int[] b = new int[m];
 
