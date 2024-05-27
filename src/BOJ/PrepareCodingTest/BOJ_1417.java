@@ -14,19 +14,21 @@ public class BOJ_1417 {
         int n = Integer.parseInt(br.readLine());
 
         int dasom = Integer.parseInt(br.readLine());
-
-        PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
-        for (int i = 1; i < n; i++) {
-            pq.add(Integer.parseInt(br.readLine()));
-        }
-
         int result = 0;
-        while (pq.peek() >= dasom) {
-            int current = pq.poll();
-            current--;
-            dasom++;
-            result++;
-            pq.add(current);
+
+        if (n > 1) {
+            PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
+            for (int i = 1; i < n; i++) {
+                pq.add(Integer.parseInt(br.readLine()));
+            }
+
+            while (pq.peek() >= dasom) {
+                int current = pq.poll();
+                current--;
+                dasom++;
+                result++;
+                pq.add(current);
+            }
         }
 
         System.out.println(result);
