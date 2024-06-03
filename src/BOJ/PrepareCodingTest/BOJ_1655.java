@@ -10,6 +10,7 @@ public class BOJ_1655 {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
 
         int n = Integer.parseInt(br.readLine());
         PriorityQueue<Integer> maxPQ = new PriorityQueue<>(Comparator.reverseOrder());
@@ -30,7 +31,8 @@ public class BOJ_1655 {
                     maxPQ.add(minPQ.poll());
                 }
             }
-            System.out.println(maxPQ.peek());
+            sb.append(maxPQ.peek()).append('\n');
         }
+        System.out.print(sb);
     }
 }
