@@ -34,7 +34,7 @@ public class BOJ_16967 {
             }
         }
         for (int i = x; i < h; i++) {
-            for (int j = y; j < w; j++) {
+            for (int j = 0; j < w; j++) {
                 a[i][j] = b[i][j];
             }
         }
