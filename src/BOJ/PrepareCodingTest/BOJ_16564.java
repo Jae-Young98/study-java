@@ -16,30 +16,31 @@ public class BOJ_16564 {
         int k = Integer.parseInt(st.nextToken());
 
         int[] arr = new int[n];
+        long min = Integer.MAX_VALUE;
+        long max = Integer.MAX_VALUE;
         for (int i = 0; i < n; i++) {
             arr[i] = Integer.parseInt(br.readLine());
+            min = Math.min(min, arr[i]);
         }
 
         Arrays.sort(arr);
-        int l = arr[0];
-        int r = arr[n - 1];
-        int result = 0;
+        long result = 0;
 
-        while (l <= r) {
-            int mid = (l + r) / 2;
+        while (min <= max) {
+            long mid = (min + max) / 2;
             long sum = 0;
 
             for (int i = 0; i < n; i++) {
-                if (arr[i] < mid) {
+                if (arr[i] <= mid) {
                     sum += (mid - arr[i]);
                 }
             }
 
             if (sum <= k) {
-                result = mid;
-                l = mid + 1;
+                result = Math.max(result, mid);
+                min = mid + 1;
             } else {
-                r = mid - 1;
+                max = mid - 1;
             }
         }
         System.out.println(result);
