@@ -14,6 +14,11 @@ public class BOJ_1309 {
         int n = Integer.parseInt(br.readLine());
 
         long[][] dp = new long[n + 1][3];
+        /*
+        * n 번 째 줄에 한 마리도 안놓는 경우
+        * n 번 째 줄의 첫 번째 칸에 놓는 경우
+        * n 번 째 줄의 두 번째 칸에 놓는 경우
+        * */
         dp[1][0] = 1;
         dp[1][1] = 1;
         dp[1][2] = 1;
