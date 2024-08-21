@@ -1,4 +1,4 @@
-package Programmers.Lv_1;
+package Programmers.kit.Hash;
 
 import java.util.HashMap;
 import java.util.Map;
