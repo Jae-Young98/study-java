@@ -3,7 +3,10 @@ package BOJ.PrepareCodingTest;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
 
@@ -11,6 +14,7 @@ public class BOJ_1822 {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
         StringTokenizer st = new StringTokenizer(br.readLine());
 
         int nA = Integer.parseInt(st.nextToken());
@@ -27,10 +31,17 @@ public class BOJ_1822 {
             set.remove(Integer.parseInt(st.nextToken()));
         }
 
-        System.out.println(set.size());
-        for (Integer i : set) {
-            System.out.print(i + " ");
+        if (set.isEmpty()) {
+            System.out.println(0);
+            return;
         }
-        System.out.println();
+
+        sb.append(set.size()).append('\n');
+        List<Integer> list = new ArrayList<>(set);
+        Collections.sort(list);
+        for (Integer i : list) {
+            sb.append(i).append('\n');
+        }
+        System.out.println(sb);
     }
 }
