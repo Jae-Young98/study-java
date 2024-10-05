@@ -12,17 +12,16 @@ public class BOJ_14912 {
         StringTokenizer st = new StringTokenizer(br.readLine());
 
         int n = Integer.parseInt(st.nextToken());
-        String d = st.nextToken();
-        char target = d.charAt(0);
+        int d = Integer.parseInt(st.nextToken());
 
         int result = 0;
         for (int i = 1; i <= n; i++) {
-            String x = String.valueOf(i);
-
-            for (int j = 0; j < x.length(); j++) {
-                if (x.charAt(j) == target) {
+            int x = i;
+            while (x > 0) {
+                if (x % 10 == d) {
                     result++;
                 }
+                x /= 10;
             }
         }
 
