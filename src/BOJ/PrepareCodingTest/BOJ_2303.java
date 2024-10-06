@@ -28,10 +28,6 @@ public class BOJ_2303 {
                         int sum = card[x] + card[y] + card[z];
                         int num = sum % 10;
                         max = Math.max(max, num);
-
-                        if (num == 9) {
-                            break;
-                        }
                     }
                 }
             }
