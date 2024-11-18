@@ -49,7 +49,7 @@ public class BOJ_2484 {
                 }
             } else {
                 list.sort(Comparator.reverseOrder());
-                prize = list.get(0) + 100;
+                prize = list.get(0) * 100;
             }
 
             result = Math.max(result, prize);
