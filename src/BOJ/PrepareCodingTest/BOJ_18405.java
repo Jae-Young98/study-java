@@ -3,8 +3,7 @@ package BOJ.PrepareCodingTest;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
 public class BOJ_18405 {
@@ -12,7 +11,7 @@ public class BOJ_18405 {
     static int[] dx = {0, 1, 0, -1};
     static int[] dy = {1, 0, -1, 0};
     static int[][] arr;
-    static Queue<Virus> queue = new LinkedList<>();
+    static PriorityQueue<Virus> queue = new PriorityQueue<>();
     static int n;
     static int k;
     static int s;
@@ -84,6 +83,9 @@ public class BOJ_18405 {
 
         @Override
         public int compareTo(Virus o) {
+            if (this.time < o.time || this.time > o.time) {
+                return this.time - o.time;
+            }
             return this.num - o.num;
         }
     }
