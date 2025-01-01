@@ -52,7 +52,7 @@ public class BOJ_21938 {
             for (int j = 0; j < m; j++) {
                 if (arr[i][j] == 255 && !visited[i][j]) {
                     result++;
-                    bfs(i, j);
+                    dfs(i, j);
                 }
             }
         }
@@ -79,6 +79,21 @@ public class BOJ_21938 {
                 queue.add(new Point(nx, ny));
                 visited[nx][ny] = true;
             }
+        }
+    }
+
+    public static void dfs(int x, int y) {
+        visited[x][y] = true;
+
+        for (int i = 0; i < 4; i++) {
+            int nx = x + dx[i];
+            int ny = y + dy[i];
+
+            if (nx >= n || nx < 0 || ny >= m || ny < 0 || visited[nx][ny] || arr[nx][ny] == 0) {
+                continue;
+            }
+
+            dfs(nx, ny);
         }
     }
 }
