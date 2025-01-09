@@ -21,7 +21,7 @@ public class BOJ_16205 {
             for (int i = 0; i < str.length(); i++) {
                 char c = str.charAt(i);
 
-                if (Character.isUpperCase(c)) {
+                if (c >= 'A' && c <= 'Z') {
                     sb.append('_').append(Character.toLowerCase(c));
                 } else {
                     sb.append(c);
@@ -29,16 +29,14 @@ public class BOJ_16205 {
             }
             sb.append('\n');
 
-            sb.append(Character.toUpperCase(str.charAt(0)));
-            str = str.substring(1);
-            sb.append(str).append('\n');
+            sb.append(Character.toUpperCase(str.charAt(0))).append(str.substring(1)).append('\n');
         } else if (num == 2) {
             for (int i = 0; i < str.length(); i++) {
                 char c = str.charAt(i);
 
                 if (c == '_') {
                     sb.append(Character.toUpperCase(str.charAt(i + 1)));
-                    i += 2;
+                    i++;
                 } else {
                     sb.append(c);
                 }
@@ -48,17 +46,19 @@ public class BOJ_16205 {
 
             sb.append(str).append('\n');
 
-            sb.append(Character.toUpperCase(str.charAt(0)));
-            sb.append(temp.substring(1)).append('\n');
+            sb.append(Character.toUpperCase(temp.charAt(0))).append(temp.substring(1)).append('\n');
         } else {
             sb.append(Character.toLowerCase(str.charAt(0))).append(str.substring(1)).append('\n');
 
-            sb.append(Character.toLowerCase(str.charAt(0)));
-            for (int i = 1; i < str.length(); i++) {
+            for (int i = 0; i < str.length(); i++) {
                 char c = str.charAt(i);
 
-                if (Character.isUpperCase(c)) {
-                    sb.append('_').append(Character.toLowerCase(c));
+                if (c >= 'A' && c <= 'Z') {
+                    if (i == 0) {
+                        sb.append(Character.toLowerCase(c));
+                    } else {
+                        sb.append('_').append(Character.toLowerCase(c));
+                    }
                 } else {
                     sb.append(c);
                 }
