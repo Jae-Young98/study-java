@@ -14,21 +14,44 @@ public class BOJ_1236 {
         int n = Integer.parseInt(st.nextToken());
         int m = Integer.parseInt(st.nextToken());
 
-        int result = 0;
+        char[][] arr = new char[n][m];
         for (int i = 0; i < n; i++) {
             String str = br.readLine();
-            boolean flag = false;
             for (int j = 0; j < m; j++) {
-                if (str.charAt(j) == 'X') {
-                    flag = true;
-                    break;
-                }
-            }
-            if (!flag) {
-                result++;
+                arr[i][j] = str.charAt(j);
             }
         }
 
-        System.out.println(result);
+        int rowCount = 0;
+        for (int i = 0; i < n; i++) {
+            boolean flag = true;
+            for (int j = 0; j < m; j++) {
+                if (arr[i][j] == 'X') {
+                    flag = false;
+                    break;
+                }
+            }
+
+            if (flag) {
+                rowCount++;
+            }
+        }
+
+        int colCount = 0;
+        for (int i = 0; i < m; i++) {
+            boolean flag = true;
+            for (int j = 0; j < n; j++) {
+                if (arr[j][i] == 'X') {
+                    flag = false;
+                    break;
+                }
+            }
+
+            if (flag) {
+                colCount++;
+            }
+        }
+
+        System.out.println(Math.max(rowCount, colCount));
     }
 }
