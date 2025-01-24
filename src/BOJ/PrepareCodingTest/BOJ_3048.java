@@ -3,6 +3,8 @@ package BOJ.PrepareCodingTest;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.StringTokenizer;
 
 public class BOJ_3048 {
@@ -15,43 +17,34 @@ public class BOJ_3048 {
         int a = Integer.parseInt(st.nextToken());
         int b = Integer.parseInt(st.nextToken());
 
-        Ant[] groupA = new Ant[a];
-        Ant[] groupB = new Ant[b];
+        List<Ant> list = new ArrayList<>();
 
         String str = br.readLine();
-        for (int i = a - 1; i >= 0; i--) {
-            groupA[i] = new Ant('A', str.charAt(a - i - 1));
+        for (int i = a - 1; i >= 0 ; i--) {
+            list.add(new Ant('A', str.charAt(i)));
         }
 
         str = br.readLine();
         for (int i = 0; i < b; i++) {
-            groupB[i] = new Ant('B', str.charAt(i));
-        }
-
-        Ant[] arr = new Ant[a + b];
-        for (int i = 0; i < a; i++) {
-            arr[i] = groupA[i];
-        }
-
-        for (int i = a; i < a + b; i++) {
-            arr[i] = groupB[i - a];
+            list.add(new Ant('B', str.charAt(i)));
         }
 
         int t = Integer.parseInt(br.readLine());
-        Ant[] result = arr;
         for (int i = 0; i < t; i++) {
-            Ant[] now = result.clone();
-            for (int j = 0; j < a + b - 1; j++) {
-                if (now[j].group != now[j + 1].group) {
-                    Ant temp = now[j];
-                    result[j] = now[j + 1];
-                    result[j + 1] = temp;
+            for (int j = 0; j < list.size() - 1; j++) {
+                Ant now = list.get(j);
+                Ant next = list.get(j + 1);
+
+                if (now.group == 'A' && next.group == 'B') {
+                    list.set(j, next);
+                    list.set(j + 1, now);
+                    j++;
                 }
             }
         }
 
-        for (int i = 0; i < a + b; i++) {
-            sb.append(result[i].name);
+        for (Ant ant : list) {
+            sb.append(ant.name);
         }
 
         System.out.println(sb);
