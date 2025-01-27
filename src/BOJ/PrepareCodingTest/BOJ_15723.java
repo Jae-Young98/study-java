@@ -26,9 +26,9 @@ public class BOJ_15723 {
             arr[a][b] = true;
         }
 
-        for (int i = 0; i < 26; i++) {
-            for (int j = 0; j < 26; j++) {
-                for (int k = 0; k < 26; k++) {
+        for (int k = 0; k < 26; k++) {
+            for (int i = 0; i < 26; i++) {
+                for (int j = 0; j < 26; j++) {
                     if (i == j || j == k || k == i) {
                         continue;
                     }
