@@ -18,6 +18,9 @@ public class BOJ_1292 {
         int index = 1;
         for (int i = 1; i <= 1000 ; i++) {
             for (int j = 1; j <= i ; j++) {
+                if (index > 1000) {
+                    break;
+                }
                 arr[index] = i;
                 index++;
             }
