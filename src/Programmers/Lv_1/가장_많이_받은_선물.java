@@ -1,4 +1,4 @@
-package Programmers.Lv_1.Kakao;
+package Programmers.Lv_1;
 
 import java.util.HashMap;
 import java.util.Map;
