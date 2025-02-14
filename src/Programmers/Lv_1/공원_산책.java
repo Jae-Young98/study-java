@@ -33,8 +33,8 @@ public class 공원_산책 {
         }
 
         StringTokenizer st;
-        for (int i = 0; i < routes.length; i++) {
-            st = new StringTokenizer(routes[i]);
+        for (String route : routes) {
+            st = new StringTokenizer(route);
             String cmd = st.nextToken();
             int dir = 0;
             if (cmd.equals("S")) {
