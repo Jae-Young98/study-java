@@ -19,7 +19,6 @@ public class 유연근무제 {
                 limit += 40;
             }
 
-            int day = startday;
             boolean hasLate = false;
             for (int j = 0; j < timelogs[i].length; j++) {
                 if ((startday + j) % 7 > 0 && (startday + j) % 7 < 6) {
